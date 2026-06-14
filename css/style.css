@@ -157,10 +157,10 @@ ul { list-style: none; }
 }
 
 .nav__brand {
-  font-family: var(--font-sans);
-  font-weight: 200;
-  font-size: 0.65rem;
-  letter-spacing: 0.28em;
+  font-family: 'Josefin Sans', var(--font-sans), sans-serif;
+  font-weight: 100;
+  font-size: 0.75rem;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--text-dark);
   cursor: default;
@@ -327,7 +327,7 @@ ul { list-style: none; }
 @media (max-width: 767px) {
   .nav__links { display: none; }
   .nav__hamburger { display: flex; }
-  .nav__brand { display: none; }
+  .nav__brand { font-size: 0.6rem; letter-spacing: 0.15em; }
 }
 
 /* --- About Split (Über mich) --- */
