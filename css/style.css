@@ -450,8 +450,11 @@ ul { list-style: none; }
   }
   .hero::after { display: none; }
   .hero__half {
-    min-height: 60vh;
-    padding: calc(var(--space-lg) + 4rem) var(--gutter) var(--space-lg);
+    min-height: 0;
+    padding: 5.5rem var(--gutter) var(--space-md);
+  }
+  .hero__half--events {
+    padding: var(--space-lg) var(--gutter) var(--space-md);
   }
   .hero__half--events .hero__content { margin-left: 0; }
 }
