@@ -162,10 +162,10 @@ ul { list-style: none; }
   font-size: 1rem;
   letter-spacing: 0.28em;
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--noir);
   cursor: default;
   user-select: none;
-  border-left: 1px solid var(--gold-light);
+  border-left: 1px solid var(--gold);
   padding-left: var(--space-md);
 }
 
