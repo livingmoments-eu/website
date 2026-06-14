@@ -451,10 +451,10 @@ ul { list-style: none; }
   .hero::after { display: none; }
   .hero__half {
     min-height: 0;
-    padding: 5.5rem var(--gutter) var(--space-md);
+    padding: 5.5rem var(--gutter) var(--space-xs);
   }
   .hero__half--events {
-    padding: var(--space-lg) var(--gutter) var(--space-md);
+    padding: var(--space-sm) var(--gutter) var(--space-xs);
   }
   .hero__half--events .hero__content { margin-left: 0; }
 }
