@@ -369,7 +369,7 @@ ul { list-style: none; }
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: calc(var(--space-xl) + 3rem) var(--gutter) var(--space-xl);
+  padding: calc(75px + var(--space-xl)) var(--gutter) var(--space-xl);
   min-height: 100vh;
 }
 
