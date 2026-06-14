@@ -1155,17 +1155,19 @@ section[id], h2[id] {
     width: 22px;
   }
 
-  /* Hero: Buttons untereinander stapeln, voll breit */
+  /* Hero: Buttons nebeneinander, gleichmäßig aufgeteilt */
   .hero__content > div {
-    flex-direction: column !important;
+    flex-direction: row !important;
     width: 100%;
-    align-items: stretch;
+    gap: var(--space-xs);
   }
 
   .hero__content .btn {
-    width: 100%;
+    flex: 1;
     text-align: center;
     white-space: normal;
+    font-size: 0.6rem;
+    padding: 0.65rem 0.5rem;
   }
 
   /* Hero: Subline kürzer halten */
