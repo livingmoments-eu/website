@@ -1114,3 +1114,132 @@ section[id], h2[id] {
     transition: none;
   }
 }
+
+/* ============================================================
+   Responsive Grid-Helfer (ersetzt Inline-Styles)
+   ============================================================ */
+.col-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+.col-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+}
+
+/* ============================================================
+   Mobile — iPhone 16 / 393px
+   ============================================================ */
+@media (max-width: 767px) {
+
+  /* Nav: dünnere Hamburger-Linien sichtbarer machen */
+  .nav__hamburger {
+    min-width: 44px;
+    min-height: 44px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .nav__hamburger span {
+    height: 2px;
+    width: 22px;
+  }
+
+  /* Hero: Buttons untereinander stapeln, voll breit */
+  .hero__content > div {
+    flex-direction: column !important;
+    width: 100%;
+    align-items: stretch;
+  }
+
+  .hero__content .btn {
+    width: 100%;
+    text-align: center;
+    white-space: normal;
+  }
+
+  /* Hero: Subline kürzer halten */
+  .hero__subline {
+    font-size: 0.95rem;
+  }
+
+  /* Section-Label: engeres Letter-Spacing auf schmalen Screens */
+  .section-label {
+    letter-spacing: 0.15em;
+  }
+
+  /* Page Header: weniger Padding */
+  .page-header {
+    padding: calc(var(--space-xl) + 3rem) var(--gutter) var(--space-md);
+  }
+
+  /* Sections: etwas weniger Vertical-Padding */
+  .section {
+    padding: var(--space-lg) 0;
+  }
+
+  /* Responsive Grids: alle auf 1 Spalte */
+  .col-2,
+  .col-3,
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+
+  .col-2 { gap: var(--space-lg); }
+
+  /* Contact Grid */
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+  }
+
+  /* Listing Items: Link unter den Text */
+  .listing-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-xs);
+    padding: var(--space-sm);
+  }
+
+  .listing-item__link {
+    margin-left: 0;
+    font-size: 0.7rem;
+  }
+
+  /* Tippgeber Box */
+  .tippgeber {
+    padding: var(--space-md) var(--space-sm);
+  }
+
+  /* About Split Half */
+  .about-split__half {
+    padding: var(--space-lg) var(--gutter);
+  }
+
+  /* Empfehlung Modal */
+  #empfehlung-modal > div {
+    padding: var(--space-lg) var(--space-md);
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  /* Testimonials: single col auf sehr engen Screens */
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Verkauft Grid */
+  .verkauft-grid {
+    grid-template-columns: 1fr;
+  }
+}
