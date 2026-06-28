@@ -13,7 +13,7 @@ Handelsregister: HRB 304847, Amtsgericht München
 
 ## Technischer Stack
 - **Statisches HTML/CSS/JS** — kein CMS, kein Framework, maximale Einfachheit
-- **GitHub** — Repository: [livingmoments-eu/julia-website](https://github.com/livingmoments-eu/julia-website) (öffentlich — enthält nur Frontend-Code, keine Secrets/Kundendaten). GitHub-Username: `livingmoments-eu`
+- **GitHub** — Repository: [livingmoments-eu/website](https://github.com/livingmoments-eu/website) (öffentlich — enthält nur Frontend-Code, keine Secrets/Kundendaten). GitHub-Username: `livingmoments-eu`
 - **Vercel** — Projekt `website-livingmoments` (Team `julia-gehring-s-projects`), verbunden mit GitHub. Auto-Deploy bei Merge in `main`
 - **Domain** — livingmoments.eu (registriert bei Squarespace, DNS → Vercel)
 - **Kein**: Newsletter, Blog, Kalender, Squarespace-Builder
