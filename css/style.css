@@ -1295,3 +1295,83 @@ section[id], h2[id] {
     grid-template-columns: 1fr;
   }
 }
+
+/* --- Bewertungs-Funnel --- */
+.funnel-progress {
+  margin-bottom: var(--space-lg);
+}
+
+.funnel-progress__bar {
+  height: 3px;
+  background: rgba(26,26,26,0.1);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.funnel-progress__fill {
+  height: 100%;
+  background: var(--gold);
+  transition: width 0.3s ease;
+}
+
+.funnel-progress__label {
+  font-family: var(--font-sans);
+  font-weight: 200;
+  font-size: 0.7rem;
+  letter-spacing: var(--tracking-brand);
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-top: var(--space-xs);
+}
+
+.funnel-type-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+}
+
+.funnel-type-card {
+  border: 1px solid var(--gold-light);
+  background: var(--white);
+  padding: var(--space-md) var(--space-sm);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: var(--text-body);
+  color: var(--text-dark);
+  cursor: pointer;
+  transition: border-color 0.2s ease, background 0.2s ease;
+  text-align: center;
+}
+
+.funnel-type-card:hover {
+  border-color: var(--gold);
+  background: var(--cream-dark);
+}
+
+.funnel-type-card.is-selected {
+  border-color: var(--gold);
+  background: var(--gold);
+  color: var(--noir);
+}
+
+.funnel-nav {
+  display: flex;
+  align-items: center;
+  margin-top: var(--space-lg);
+  gap: var(--space-sm);
+}
+
+#bewertungs-form input,
+#bewertungs-form select {
+  background: rgba(255,255,255,0.7);
+  color: var(--noir);
+  border-color: rgba(26,26,26,0.2);
+}
+
+#bewertungs-form input::placeholder {
+  color: rgba(26,26,26,0.45);
+}
+
+@media (max-width: 480px) {
+  .funnel-type-grid { grid-template-columns: 1fr; }
+}

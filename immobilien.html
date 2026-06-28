@@ -403,50 +403,121 @@
 
 <!-- Bewertungsanfrage -->
 <section class="section section--cream-dark" id="bewertung-anfrage" aria-labelledby="bewertung-anfrage-heading">
-  <div class="container" style="max-width:700px;">
-    <div class="section__header fade-in">
+  <div class="container" style="max-width:700px; text-align:center;">
+    <div class="fade-in">
       <span class="section-label">Kostenlose Bewertung</span>
       <h2 id="bewertung-anfrage-heading" class="section__title">Was ist Ihre Immobilie wert?</h2>
-      <p class="section__lead">Teilen Sie mir ein paar Eckdaten mit - ich melde mich persönlich für eine fundierte Einschätzung.</p>
+      <p class="section__lead" style="margin-bottom:var(--space-md);">In 4 kurzen Schritten zur fundierten Ersteinschätzung - ich melde mich persönlich bei Ihnen.</p>
+      <button type="button" class="btn btn-gold" style="padding:1rem 2.5rem;" onclick="document.getElementById('bewertungs-funnel').style.display='flex'">Jetzt Immobilie sofort bewerten lassen →</button>
+      <p style="margin-top:var(--space-sm); font-size:var(--text-small); color:var(--text-muted); letter-spacing:0.04em;">Kostenlos · Unverbindlich · Antwort innerhalb von 24 Stunden</p>
     </div>
-
-    <form class="contact-form fade-in" id="bewertung-form" novalidate>
-
-      <div class="form-row">
-        <div>
-          <label for="bw-name" class="visually-hidden">Ihr Name</label>
-          <input type="text" id="bw-name" name="name" placeholder="Ihr Name *" required autocomplete="name">
-        </div>
-        <div>
-          <label for="bw-telefon" class="visually-hidden">Telefon</label>
-          <input type="tel" id="bw-telefon" name="telefon" placeholder="Telefon *" required autocomplete="tel">
-        </div>
-      </div>
-
-      <div>
-        <label for="bw-adresse" class="visually-hidden">Ihre Adresse</label>
-        <input type="text" id="bw-adresse" name="adresse" placeholder="Ihre Adresse" autocomplete="street-address">
-      </div>
-
-      <div>
-        <label for="bw-objektadresse" class="visually-hidden">Adresse des Objekts</label>
-        <input type="text" id="bw-objektadresse" name="objektadresse" placeholder="Adresse des Objekts *" required>
-      </div>
-
-      <div>
-        <label for="bw-dringlichkeit" class="visually-hidden">Dringlichkeit</label>
-        <select id="bw-dringlichkeit" name="dringlichkeit">
-          <option value="" disabled selected>Dringlichkeit</option>
-          <option value="Sehr zeitnah - ich möchte zügig verkaufen">Sehr zeitnah - ich möchte zügig verkaufen</option>
-          <option value="In den nächsten Monaten">In den nächsten Monaten</option>
-          <option value="Nur unverbindliche Einschätzung, kein konkreter Zeitplan">Nur unverbindliche Einschätzung, kein konkreter Zeitplan</option>
-        </select>
-      </div>
-
-      <button type="submit" class="btn btn-gold" style="width:100%; padding:1rem; letter-spacing:var(--tracking-brand);">Bewertung anfragen</button>
-    </form>
   </div>
 </section>
+
+<!-- Bewertungs-Funnel Modal -->
+<div id="bewertungs-funnel" style="display:none; position:fixed; inset:0; background:rgba(26,26,26,0.7); z-index:1000; align-items:center; justify-content:center; padding:var(--space-md);" onclick="if(event.target===this)this.style.display='none'">
+  <div style="background:var(--cream); max-width:560px; width:100%; max-height:90vh; overflow-y:auto; padding:var(--space-xl); position:relative;">
+    <button onclick="document.getElementById('bewertungs-funnel').style.display='none'" style="position:absolute; top:var(--space-sm); right:var(--space-sm); background:none; border:none; cursor:pointer; font-family:var(--font-sans); font-weight:200; font-size:1.2rem; color:var(--text-muted); line-height:1;" aria-label="Schließen">✕</button>
+
+    <!-- Fortschrittsbalken -->
+    <div class="funnel-progress">
+      <div class="funnel-progress__bar"><div class="funnel-progress__fill" id="funnel-progress-fill" style="width:25%;"></div></div>
+      <p class="funnel-progress__label" id="funnel-progress-label">Schritt 1 von 4</p>
+    </div>
+
+    <form id="bewertungs-form" novalidate>
+
+      <!-- Schritt 1: Adresse -->
+      <div class="funnel-step" data-step="1">
+        <span class="section-label">Wo liegt die Immobilie?</span>
+        <h3 style="font-family:var(--font-serif); font-weight:300; font-size:1.5rem; margin:0.4rem 0 var(--space-md);">Adresse der Immobilie</h3>
+        <div style="display:flex; flex-direction:column; gap:var(--space-sm);">
+          <div>
+            <label for="fn-strasse" class="visually-hidden">Straße</label>
+            <input type="text" id="fn-strasse" name="strasse" placeholder="Straße *" required>
+          </div>
+          <div>
+            <label for="fn-plz" class="visually-hidden">Postleitzahl</label>
+            <input type="text" id="fn-plz" name="plz" placeholder="Postleitzahl *" required inputmode="numeric" pattern="[0-9]{4,5}" maxlength="5">
+          </div>
+        </div>
+      </div>
+
+      <!-- Schritt 2: Objektart -->
+      <div class="funnel-step" data-step="2" hidden>
+        <span class="section-label">Um welche Art von Immobilie geht es?</span>
+        <h3 style="font-family:var(--font-serif); font-weight:300; font-size:1.5rem; margin:0.4rem 0 var(--space-md);">Objektart</h3>
+        <div class="funnel-type-grid">
+          <button type="button" class="funnel-type-card" data-value="Wohnung">Wohnung</button>
+          <button type="button" class="funnel-type-card" data-value="Einfamilienhaus">Einfamilienhaus</button>
+          <button type="button" class="funnel-type-card" data-value="Mehrfamilienhaus">Mehrfamilienhaus</button>
+          <button type="button" class="funnel-type-card" data-value="Reihenhaus">Reihenhaus</button>
+        </div>
+        <input type="hidden" id="fn-objektart" name="objektart" required>
+      </div>
+
+      <!-- Schritt 3: Kriterien -->
+      <div class="funnel-step" data-step="3" hidden>
+        <span class="section-label">Ein paar Eckdaten</span>
+        <h3 style="font-family:var(--font-serif); font-weight:300; font-size:1.5rem; margin:0.4rem 0 var(--space-md);">Größe &amp; Zuschnitt</h3>
+        <div style="display:flex; flex-direction:column; gap:var(--space-sm);">
+          <div>
+            <label for="fn-wohnflaeche" class="visually-hidden">Wohnfläche in m²</label>
+            <input type="number" id="fn-wohnflaeche" name="wohnflaeche" placeholder="Wohnfläche in m² *" required min="1">
+          </div>
+          <div id="fn-grundstueck-wrap">
+            <label for="fn-grundstueck" class="visually-hidden">Grundstücksfläche in m²</label>
+            <input type="number" id="fn-grundstueck" name="grundstueck" placeholder="Grundstücksfläche in m²" min="1">
+          </div>
+          <div>
+            <label for="fn-stockwerke" class="visually-hidden">Stockwerke</label>
+            <select id="fn-stockwerke" name="stockwerke">
+              <option value="" disabled selected>Stockwerke / Etage</option>
+              <option value="EG">Erdgeschoss</option>
+              <option value="1">1. Stockwerk / Etage</option>
+              <option value="2">2. Stockwerk / Etage</option>
+              <option value="3">3. Stockwerk / Etage</option>
+              <option value="4+">4. Stockwerk / Etage oder höher</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Schritt 4: Kontakt -->
+      <div class="funnel-step" data-step="4" hidden>
+        <span class="section-label">Letzter Schritt</span>
+        <h3 style="font-family:var(--font-serif); font-weight:300; font-size:1.5rem; margin:0.4rem 0 var(--space-md);">Wohin senden wir Ihre Einschätzung?</h3>
+        <div style="display:flex; flex-direction:column; gap:var(--space-sm);">
+          <div>
+            <label for="fn-email" class="visually-hidden">E-Mail</label>
+            <input type="email" id="fn-email" name="email" placeholder="Ihre E-Mail *" required autocomplete="email">
+          </div>
+          <div>
+            <label for="fn-telefon" class="visually-hidden">Telefon oder WhatsApp</label>
+            <input type="tel" id="fn-telefon" name="telefon" placeholder="Telefon oder WhatsApp (optional)" autocomplete="tel">
+          </div>
+          <label style="display:flex; gap:0.5rem; align-items:flex-start; font-size:var(--text-small); color:var(--text-muted); font-weight:300; cursor:pointer; margin-top:var(--space-xs);">
+            <input type="checkbox" id="fn-consent" name="consent" required style="width:auto; margin-top:0.2rem;">
+            <span>Ich bin einverstanden, dass meine Angaben zur Bearbeitung dieser Anfrage gespeichert und verwendet werden. *</span>
+          </label>
+        </div>
+      </div>
+
+      <!-- Erfolgsmeldung -->
+      <div class="funnel-step" data-step="success" hidden style="text-align:center;">
+        <span class="section-label">Vielen Dank</span>
+        <h3 style="font-family:var(--font-serif); font-weight:300; font-size:1.5rem; margin:0.4rem 0 var(--space-sm);">Ihre Anfrage ist bei mir.</h3>
+        <p style="color:var(--text-muted); font-weight:300;">Ich melde mich innerhalb von 24 Stunden persönlich mit einer ersten Einschätzung bei Ihnen.</p>
+      </div>
+
+      <div class="funnel-nav">
+        <button type="button" id="funnel-back" class="btn btn-light" style="display:none;">← Zurück</button>
+        <button type="button" id="funnel-next" class="btn btn-gold" style="margin-left:auto;">Weiter →</button>
+        <button type="submit" id="funnel-submit" class="btn btn-gold" style="margin-left:auto; display:none;">Bewertung anfordern</button>
+      </div>
+    </form>
+  </div>
+</div>
 
 <!-- Verkaufen / Kontakt -->
 <section class="section section--gold" id="kontakt-immobilien" aria-labelledby="kontakt-immo-heading">

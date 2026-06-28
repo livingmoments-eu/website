@@ -3,3 +3,4 @@
 Fotos KI für Website LM/
 *.log
 .vercel
+node_modules/
