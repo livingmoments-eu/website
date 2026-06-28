@@ -105,6 +105,34 @@
   });
 })();
 
+/* Bewertungsanfrage-Formular */
+(function () {
+  const form = document.getElementById('bewertung-form');
+  if (!form) return;
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const btn = form.querySelector('button[type="submit"]');
+    const f = function (name) { return (form.querySelector('[name="' + name + '"]') || {}).value || ''; };
+
+    const subject = encodeURIComponent('Bewertungsanfrage: ' + (f('objektadresse') || 'Immobilie'));
+    const body = encodeURIComponent(
+      'Name: ' + f('name') + '\n' +
+      'Telefon: ' + f('telefon') + '\n' +
+      'Adresse: ' + f('adresse') + '\n\n' +
+      'Adresse des Objekts: ' + f('objektadresse') + '\n' +
+      'Dringlichkeit: ' + f('dringlichkeit')
+    );
+
+    window.location.href = 'mailto:julia.gehring@engelvoelkers.com?subject=' + subject + '&body=' + body;
+
+    if (btn) {
+      btn.textContent = 'Wird weitergeleitet...';
+      setTimeout(function () { btn.textContent = 'Bewertung anfragen'; }, 3000);
+    }
+  });
+})();
+
 /* Empfehlung-Modal: Formular Submit */
 (function () {
   const form = document.querySelector('#empfehlung-modal form');

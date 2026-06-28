@@ -117,6 +117,17 @@ ul { list-style: none; }
   color: var(--noir);
 }
 
+.btn-gold {
+  background: var(--gold);
+  color: var(--noir);
+  border-color: var(--gold);
+}
+.btn-gold:hover {
+  background: var(--gold-dark);
+  border-color: var(--gold-dark);
+  color: var(--noir);
+}
+
 .btn-dark {
   color: var(--white);
 }
@@ -150,6 +161,14 @@ ul { list-style: none; }
   gap: var(--space-md);
 }
 
+.nav__logo {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: var(--space-md);
+  text-decoration: none;
+}
+
 .nav__logo img {
   height: 42px;
   width: auto;
@@ -163,7 +182,6 @@ ul { list-style: none; }
   letter-spacing: 0.28em;
   text-transform: uppercase;
   color: var(--noir);
-  cursor: default;
   user-select: none;
   border-left: 1px solid var(--gold);
   padding-left: var(--space-md);
@@ -327,7 +345,9 @@ ul { list-style: none; }
 @media (max-width: 767px) {
   .nav__links { display: none; }
   .nav__hamburger { display: flex; }
-  .nav__brand { font-size: 0.6rem; letter-spacing: 0.15em; }
+  .nav__logo { gap: var(--space-sm); }
+  .nav__logo img { height: 30px; }
+  .nav__brand { font-size: 0.6rem; letter-spacing: 0.15em; padding-left: var(--space-sm); white-space: nowrap; }
 }
 
 /* --- About Split (Über mich) --- */
@@ -643,7 +663,7 @@ ul { list-style: none; }
   font-size: 0.65rem;
   letter-spacing: var(--tracking-brand);
   text-transform: uppercase;
-  color: var(--gold);
+  color: var(--noir);
   border: 1px solid var(--gold);
   padding: 0.2rem 0.6rem;
   margin-bottom: var(--space-xs);
@@ -806,7 +826,7 @@ ul { list-style: none; }
 }
 
 .contact-rows {
-  border-top: 1px solid rgba(201,169,110,0.2);
+  border-top: 1px solid rgba(201,169,110,0.3);
   margin-bottom: var(--space-md);
 }
 
@@ -814,16 +834,17 @@ ul { list-style: none; }
   display: flex;
   align-items: center;
   gap: var(--space-sm);
-  padding: 0.85rem 0;
-  border-bottom: 1px solid rgba(201,169,110,0.2);
+  padding: 1.1rem 0;
+  border-bottom: 1px solid rgba(201,169,110,0.3);
   color: var(--white);
   text-decoration: none;
-  transition: padding-left 0.2s ease, border-color 0.2s ease;
+  transition: padding-left 0.2s ease, border-color 0.2s ease, background 0.2s ease;
 }
 
 a.contact-row:hover {
   padding-left: 0.5rem;
-  border-bottom-color: rgba(201,169,110,0.6);
+  border-bottom-color: var(--gold);
+  background: rgba(201,169,110,0.05);
 }
 
 .contact-row__label {
@@ -862,16 +883,16 @@ a.contact-row:hover .contact-row__arrow {
 .contact-form {
   display: flex;
   flex-direction: column;
-  gap: var(--space-sm);
+  gap: var(--space-md);
 }
 
 .contact-form input,
 .contact-form textarea,
 .contact-form select {
   width: 100%;
-  padding: 0.85rem 1rem;
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(201,169,110,0.3);
+  padding: 1rem 1.15rem;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(201,169,110,0.35);
   font-family: var(--font-sans);
   font-weight: 300;
   font-size: var(--text-body);
@@ -908,7 +929,7 @@ a.contact-row:hover .contact-row__arrow {
   background: rgba(201,169,110,0.05);
 }
 
-.contact-form textarea { min-height: 130px; resize: vertical; }
+.contact-form textarea { min-height: 100px; resize: vertical; }
 
 .contact-form .btn {
   width: 100%;
@@ -1047,6 +1068,7 @@ a.contact-row:hover .contact-row__arrow {
 .page-header--about {
   background: var(--gold);
   color: var(--noir);
+  padding-bottom: var(--space-sm);
 }
 .page-header--about .page-header__lead { color: rgba(26,26,26,0.7); }
 .page-header--about .section-label { color: var(--noir); opacity: 0.6; }
@@ -1068,11 +1090,34 @@ section[id], h2[id] {
 /* Placeholder-Farbe in hellen/goldenen Formularen */
 .section--gold input::placeholder,
 .section--gold textarea::placeholder,
-.section--gold select {
+.section--gold select,
+.section--cream input::placeholder,
+.section--cream textarea::placeholder,
+.section--cream select,
+.section--cream-dark input::placeholder,
+.section--cream-dark textarea::placeholder,
+.section--cream-dark select {
   color: rgba(26,26,26,0.5);
 }
 .section--gold input,
-.section--gold textarea {
+.section--gold textarea,
+.section--cream input,
+.section--cream textarea,
+.section--cream-dark input,
+.section--cream-dark textarea {
+  color: var(--noir);
+  border-color: rgba(26,26,26,0.2);
+  background: rgba(26,26,26,0.03);
+}
+.section--cream select.has-value,
+.section--cream select:focus,
+.section--cream-dark select.has-value,
+.section--cream-dark select:focus {
+  color: var(--noir);
+}
+.section--cream select option,
+.section--cream-dark select option {
+  background: var(--white);
   color: var(--noir);
 }
 
