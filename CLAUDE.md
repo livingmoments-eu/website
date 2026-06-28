@@ -13,8 +13,8 @@ Handelsregister: HRB 304847, Amtsgericht München
 
 ## Technischer Stack
 - **Statisches HTML/CSS/JS** — kein CMS, kein Framework, maximale Einfachheit
-- **GitHub** — Repository (Ben richtet einmalig ein)
-- **Vercel** — Deployment, auto-deploy bei git push
+- **GitHub** — Repository: [livingmoments-eu/julia-website](https://github.com/livingmoments-eu/julia-website) (öffentlich — enthält nur Frontend-Code, keine Secrets/Kundendaten). GitHub-Username: `livingmoments-eu`
+- **Vercel** — Projekt `website-livingmoments` (Team `julia-gehring-s-projects`), verbunden mit GitHub. Auto-Deploy bei Merge in `main`
 - **Domain** — livingmoments.eu (registriert bei Squarespace, DNS → Vercel)
 - **Kein**: Newsletter, Blog, Kalender, Squarespace-Builder
 
@@ -52,7 +52,13 @@ Handelsregister: HRB 304847, Amtsgericht München
 
 ## Wie Julia Updates macht
 Julia arbeitet mit Claude Code. Sie beschreibt die Änderung in natürlicher Sprache — Claude setzt um.
-Kein GitHub-Wissen nötig. Ben kümmert sich um: Repo anlegen, Vercel verbinden, Domain-DNS.
+Kein GitHub-Wissen nötig für Julia selbst — Claude übernimmt den Git-Workflow.
+
+## Git-Workflow (verbindlich)
+- **Niemals direkt auf `main` committen.** Immer: neuer Branch → Commit(s) → Pull Request → Julia merged selbst (oder gibt explizit grünes Licht zum Mergen)
+- Branch-Namen kurz und beschreibend, z. B. `fix-listing-texte`, `feature-bewertungsformular`
+- **Nach Merge in `main` deployed Vercel automatisch.** Kein manueller `vercel deploy` mehr nötig — das war der alte Workflow vor der GitHub-Anbindung
+- Jeder offene PR bekommt automatisch eine Vercel-Preview-URL zum Gegenchecken vor dem Merge
 
 ## Memory-Dateien
 Alle projektrelevanten Memories liegen unter:
