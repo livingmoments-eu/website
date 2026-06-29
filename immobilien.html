@@ -378,8 +378,8 @@
 
 <!-- Bewertungs-Funnel Modal -->
 <div id="bewertungs-funnel" style="display:none; position:fixed; inset:0; background:rgba(26,26,26,0.7); z-index:1000; align-items:center; justify-content:center; padding:var(--space-md);" onclick="if(event.target===this)this.style.display='none'">
-  <div style="background:var(--noir); color:var(--cream); max-width:560px; width:100%; max-height:90vh; overflow-y:auto; padding:var(--space-xl); position:relative;">
-    <button onclick="document.getElementById('bewertungs-funnel').style.display='none'" style="position:absolute; top:var(--space-sm); right:var(--space-sm); background:none; border:none; cursor:pointer; font-family:var(--font-sans); font-weight:200; font-size:1.2rem; color:rgba(240,237,232,0.4); line-height:1;" aria-label="Schließen">✕</button>
+  <div style="background:var(--white); max-width:560px; width:100%; max-height:90vh; overflow-y:auto; padding:var(--space-xl); position:relative;">
+    <button onclick="document.getElementById('bewertungs-funnel').style.display='none'" style="position:absolute; top:var(--space-sm); right:var(--space-sm); background:none; border:none; cursor:pointer; font-family:var(--font-sans); font-weight:200; font-size:1.2rem; color:rgba(26,26,26,0.3); line-height:1;" aria-label="Schließen">✕</button>
 
     <!-- Fortschrittsbalken -->
     <div class="funnel-progress">
@@ -393,10 +393,10 @@
       <div class="funnel-step" data-step="1">
         <span class="section-label">Wo liegt die Immobilie?</span>
         <h3 style="font-family:var(--font-serif); font-weight:300; font-size:1.5rem; margin:0.4rem 0 var(--space-md);">Adresse der Immobilie</h3>
-        <div style="display:flex; flex-direction:column; gap:var(--space-sm);">
-          <div>
+        <div style="display:flex; flex-direction:column; gap:var(--space-xs);">
+          <div style="position:relative;">
             <label for="fn-strasse" class="visually-hidden">Straße</label>
-            <input type="text" id="fn-strasse" name="strasse" placeholder="Straße *" required>
+            <input type="text" id="fn-strasse" name="strasse" placeholder="Straße *" required autocomplete="off">
           </div>
           <div>
             <label for="fn-plz" class="visually-hidden">Postleitzahl</label>
@@ -458,7 +458,7 @@
             <label for="fn-telefon" class="visually-hidden">Telefon oder WhatsApp</label>
             <input type="tel" id="fn-telefon" name="telefon" placeholder="Telefon oder WhatsApp (optional)" autocomplete="tel">
           </div>
-          <label style="display:flex; gap:0.5rem; align-items:flex-start; font-size:var(--text-small); color:rgba(240,237,232,0.55); font-weight:300; cursor:pointer; margin-top:var(--space-xs);">
+          <label style="display:flex; gap:0.5rem; align-items:flex-start; font-size:var(--text-small); color:var(--text-muted); font-weight:300; cursor:pointer; margin-top:var(--space-xs);">
             <input type="checkbox" id="fn-consent" name="consent" required style="width:auto; margin-top:0.2rem; accent-color:var(--gold);">
             <span>Ich bin einverstanden, dass meine Angaben zur Bearbeitung dieser Anfrage gespeichert und verwendet werden. *</span>
           </label>
@@ -469,7 +469,7 @@
       <div class="funnel-step" data-step="success" hidden style="text-align:center;">
         <span class="section-label">Vielen Dank</span>
         <h3 style="font-family:var(--font-serif); font-weight:300; font-size:1.5rem; margin:0.4rem 0 var(--space-sm);">Ihre Anfrage ist bei mir.</h3>
-        <p style="color:rgba(240,237,232,0.65); font-weight:300;">Ich melde mich innerhalb von 24 Stunden persönlich mit einer ersten Einschätzung bei Ihnen.</p>
+        <p style="color:var(--text-muted); font-weight:300;">Ich melde mich innerhalb von 24 Stunden persönlich mit einer ersten Einschätzung bei Ihnen.</p>
       </div>
 
       <div class="funnel-nav">
