@@ -344,6 +344,40 @@
   });
 })();
 
+/* Testimonial Modal */
+(function () {
+  var modal = document.getElementById('testimonial-modal');
+  if (!modal) return;
+
+  var content = document.getElementById('testimonial-modal-content');
+  var backdrop = modal.querySelector('.testimonial-modal__backdrop');
+  var closeBtn = modal.querySelector('.testimonial-modal__close');
+
+  function openModal(id) {
+    var tpl = document.getElementById('testimonial-' + id);
+    if (!tpl) return;
+    content.innerHTML = tpl.innerHTML;
+    modal.hidden = false;
+    document.body.style.overflow = 'hidden';
+    closeBtn.focus();
+  }
+
+  function closeModal() {
+    modal.hidden = true;
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.testimonial-card').forEach(function (card) {
+    card.addEventListener('click', function () { openModal(card.dataset.testimonial); });
+  });
+
+  closeBtn.addEventListener('click', closeModal);
+  backdrop.addEventListener('click', closeModal);
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && !modal.hidden) closeModal();
+  });
+})();
+
 /* Adresse-Autocomplete im Bewertungs-Funnel (Photon / OpenStreetMap, kein API-Key) */
 (function () {
   var straßeInput = document.getElementById('fn-strasse');
