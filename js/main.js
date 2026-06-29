@@ -105,32 +105,113 @@
   });
 })();
 
-/* Bewertungsanfrage-Formular */
+/* Bewertungs-Funnel: mehrstufiges Modal-Formular */
 (function () {
-  const form = document.getElementById('bewertung-form');
-  if (!form) return;
+  const modal = document.getElementById('bewertungs-funnel');
+  const form = document.getElementById('bewertungs-form');
+  if (!modal || !form) return;
+
+  const steps = Array.from(form.querySelectorAll('.funnel-step[data-step]'));
+  const dataSteps = steps.filter(function (s) { return s.dataset.step !== 'success'; });
+  const totalSteps = dataSteps.length;
+  const progressFill = document.getElementById('funnel-progress-fill');
+  const progressLabel = document.getElementById('funnel-progress-label');
+  const backBtn = document.getElementById('funnel-back');
+  const nextBtn = document.getElementById('funnel-next');
+  const submitBtn = document.getElementById('funnel-submit');
+  const objektartInput = document.getElementById('fn-objektart');
+  const grundstueckWrap = document.getElementById('fn-grundstueck-wrap');
+  let current = 1;
+
+  function showStep(n) {
+    steps.forEach(function (s) { s.hidden = s.dataset.step !== String(n); });
+    const pct = Math.round((n / totalSteps) * 100);
+    progressFill.style.width = pct + '%';
+    progressLabel.textContent = 'Schritt ' + n + ' von ' + totalSteps;
+    backBtn.style.display = n > 1 ? 'inline-block' : 'none';
+    nextBtn.style.display = n < totalSteps ? 'inline-block' : 'none';
+    submitBtn.style.display = n === totalSteps ? 'inline-block' : 'none';
+  }
+
+  function currentStepEl() {
+    return form.querySelector('.funnel-step[data-step="' + current + '"]');
+  }
+
+  function validateStep() {
+    const fields = currentStepEl().querySelectorAll('input[required], select[required]');
+    for (const field of fields) {
+      if (!field.value || (field.type === 'checkbox' && !field.checked)) {
+        field.reportValidity();
+        return false;
+      }
+    }
+    if (current === 2 && !objektartInput.value) {
+      return false;
+    }
+    return true;
+  }
+
+  form.querySelectorAll('.funnel-type-card').forEach(function (card) {
+    card.addEventListener('click', function () {
+      form.querySelectorAll('.funnel-type-card').forEach(function (c) { c.classList.remove('is-selected'); });
+      card.classList.add('is-selected');
+      objektartInput.value = card.dataset.value;
+      if (grundstueckWrap) {
+        grundstueckWrap.style.display = card.dataset.value === 'Wohnung' ? 'none' : 'block';
+      }
+    });
+  });
+
+  nextBtn.addEventListener('click', function () {
+    if (!validateStep()) return;
+    current++;
+    showStep(current);
+  });
+
+  backBtn.addEventListener('click', function () {
+    current--;
+    showStep(current);
+  });
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-    const btn = form.querySelector('button[type="submit"]');
+    if (!validateStep()) return;
+
     const f = function (name) { return (form.querySelector('[name="' + name + '"]') || {}).value || ''; };
+    const payload = {
+      strasse: f('strasse'),
+      plz: f('plz'),
+      objektart: f('objektart'),
+      wohnflaeche: f('wohnflaeche'),
+      grundstueck: f('grundstueck'),
+      stockwerke: f('stockwerke'),
+      email: f('email'),
+      telefon: f('telefon')
+    };
 
-    const subject = encodeURIComponent('Bewertungsanfrage: ' + (f('objektadresse') || 'Immobilie'));
-    const body = encodeURIComponent(
-      'Name: ' + f('name') + '\n' +
-      'Telefon: ' + f('telefon') + '\n' +
-      'Adresse: ' + f('adresse') + '\n\n' +
-      'Adresse des Objekts: ' + f('objektadresse') + '\n' +
-      'Dringlichkeit: ' + f('dringlichkeit')
-    );
+    submitBtn.textContent = 'Wird gesendet...';
+    submitBtn.disabled = true;
 
-    window.location.href = 'mailto:julia.gehring@engelvoelkers.com?subject=' + subject + '&body=' + body;
-
-    if (btn) {
-      btn.textContent = 'Wird weitergeleitet...';
-      setTimeout(function () { btn.textContent = 'Bewertung anfragen'; }, 3000);
-    }
+    fetch('/api/bewertung', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+      .then(function (response) {
+        if (!response.ok) throw new Error('Request failed with status ' + response.status);
+        form.querySelectorAll('.funnel-step').forEach(function (s) { s.hidden = s.dataset.step !== 'success'; });
+        form.querySelector('.funnel-nav').style.display = 'none';
+        progressFill.style.width = '100%';
+        progressLabel.textContent = 'Abgeschlossen';
+      })
+      .catch(function () {
+        submitBtn.textContent = 'Bewertung anfordern';
+        submitBtn.disabled = false;
+        alert('Da ist leider etwas schiefgelaufen. Bitte versuchen Sie es erneut oder schreiben Sie mir direkt eine E-Mail.');
+      });
   });
+
+  showStep(1);
 })();
 
 /* Empfehlung-Modal: Formular Submit */

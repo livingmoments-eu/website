@@ -1,0 +1,6 @@
+{
+  "name": "living-moments-website",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Statische Website für Living Moments UG mit einer kleinen Vercel-Serverless-Function für den Bewertungs-Funnel."
+}
