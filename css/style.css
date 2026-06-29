@@ -1190,6 +1190,119 @@ section[id], h2[id] {
 }
 
 /* ============================================================
+   Listing Cards — dynamisch geladen von /assets/data/listings.json
+   ============================================================ */
+
+.listings-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: var(--space-md);
+  margin-bottom: var(--space-sm);
+}
+
+.listing-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--gold-light);
+  padding: 2rem var(--space-md) var(--space-md);
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  background: var(--cream);
+  cursor: pointer;
+  transition: border-color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.listing-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 32px rgba(0,0,0,0.07);
+}
+
+.listing-card__badge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: var(--gold);
+  color: var(--noir);
+  font-family: var(--font-sans);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.28rem 0.65rem;
+}
+
+.listing-card__location {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  color: var(--text-muted);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 0.45rem;
+}
+
+.listing-card__title {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: 1.05rem;
+  line-height: 1.35;
+  color: var(--text-dark);
+  margin-bottom: 0.8rem;
+  flex: 1;
+}
+
+.listing-card__price {
+  font-family: var(--font-sans);
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--noir);
+  margin-bottom: 0.3rem;
+}
+
+.listing-card__meta {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  font-weight: 300;
+  margin-bottom: var(--space-md);
+}
+
+.listing-card__cta {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 300;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gold-dark);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: auto;
+}
+
+.listing-card:hover .listing-card__cta { color: var(--gold); }
+
+.listings-meta {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-align: right;
+  margin-bottom: var(--space-md);
+  letter-spacing: 0.04em;
+}
+
+.listings-loading {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: var(--space-xl) 0;
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 0.9rem;
+}
+
+.listings-loading a { color: var(--gold-dark); }
+
+/* ============================================================
    Responsive Grid-Helfer (ersetzt Inline-Styles)
    ============================================================ */
 .col-2 {

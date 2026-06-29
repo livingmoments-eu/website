@@ -242,6 +242,60 @@
   });
 })();
 
+/* Dynamische E&V Listings */
+(function () {
+  var container = document.getElementById('listings-container');
+  if (!container) return;
+
+  fetch('/assets/data/listings.json')
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      var listings = data.listings || [];
+      var updated = data.lastUpdated || '';
+
+      if (!listings.length) {
+        container.innerHTML = '<p class="listings-loading">Derzeit keine Angebote verfügbar.</p>';
+        return;
+      }
+
+      // Metazeile "Zuletzt aktualisiert"
+      var meta = document.getElementById('listings-meta');
+      if (meta && updated) {
+        var d = new Date(updated + 'T00:00:00');
+        meta.textContent = 'Zuletzt aktualisiert: ' + d.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' });
+      }
+
+      container.innerHTML = listings.map(function (l) {
+        var badge = l.isNew ? '<span class="listing-card__badge">NEU</span>' : '';
+        var metaStr = [l.rooms, l.bathrooms, l.sqm].filter(Boolean).join(' · ');
+        return (
+          '<a href="' + l.url + '" target="_blank" rel="noopener" class="listing-card fade-in">' +
+            badge +
+            '<div class="listing-card__location">' + (l.location || '') + '</div>' +
+            '<div class="listing-card__title">' + (l.title || '') + '</div>' +
+            '<div class="listing-card__price">' + (l.price || '') + '</div>' +
+            (metaStr ? '<div class="listing-card__meta">' + metaStr + '</div>' : '') +
+            '<span class="listing-card__cta">Bei Engel &amp; Völkers ansehen →</span>' +
+          '</a>'
+        );
+      }).join('');
+
+      // Fade-in auf dynamisch eingefügten Karten
+      var obs = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+        });
+      }, { threshold: 0.05 });
+      container.querySelectorAll('.fade-in').forEach(function (el) { obs.observe(el); });
+    })
+    .catch(function () {
+      container.innerHTML =
+        '<p class="listings-loading">Angebote können gerade nicht geladen werden. ' +
+        '<a href="https://www.engelvoelkers.com/de/de/advisors/julia-gehring" target="_blank" rel="noopener">' +
+        'Direkt bei Engel &amp; Völkers ansehen →</a></p>';
+    });
+})();
+
 /* Select: has-value class für Placeholder-Styling */
 (function () {
   document.querySelectorAll('.contact-form select').forEach(function (sel) {
