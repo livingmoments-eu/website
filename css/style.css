@@ -60,6 +60,7 @@ body {
 img { display: block; max-width: 100%; height: auto; }
 a { color: inherit; text-decoration: none; }
 ul { list-style: none; }
+h1, h2, h3 { text-wrap: balance; }
 
 /* --- Utility --- */
 .container {
@@ -73,6 +74,26 @@ ul { list-style: none; }
   padding: 0; margin: -1px; overflow: hidden;
   clip: rect(0,0,0,0); white-space: nowrap; border: 0;
 }
+
+/* Skip-to-content link (keyboard accessibility) */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--space-md);
+  z-index: 10000;
+  background: var(--gold);
+  color: var(--noir);
+  padding: 0.6rem 1.25rem;
+  font-family: var(--font-sans);
+  font-size: var(--text-small);
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 1px;
+  transition: top 0.15s ease;
+}
+.skip-link:focus { top: var(--space-md); }
 
 .divider {
   width: 40px; height: 1px;
@@ -261,7 +282,8 @@ ul { list-style: none; }
   background: transparent;
 }
 
-.nav__item--dropdown:hover .nav__dropdown { display: flex; }
+.nav__item--dropdown:hover .nav__dropdown,
+.nav__item--dropdown:focus-within .nav__dropdown { display: flex; }
 
 .nav__dropdown-link {
   font-family: var(--font-sans);
@@ -696,6 +718,7 @@ ul { list-style: none; }
   padding: var(--space-sm) var(--space-md);
   border: 1px solid var(--gold-light);
   transition: border-color 0.25s ease, background 0.25s ease;
+  cursor: pointer;
 }
 
 .listing-item:hover {
@@ -838,11 +861,11 @@ ul { list-style: none; }
   border-bottom: 1px solid rgba(201,169,110,0.3);
   color: var(--white);
   text-decoration: none;
-  transition: padding-left 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
 }
 
 a.contact-row:hover {
-  padding-left: 0.5rem;
+  transform: translateX(0.5rem);
   border-bottom-color: var(--gold);
   background: rgba(201,169,110,0.05);
 }
@@ -924,7 +947,8 @@ a.contact-row:hover .contact-row__arrow {
 .contact-form input:focus,
 .contact-form textarea:focus,
 .contact-form select:focus {
-  outline: none;
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
   border-color: var(--gold);
   background: rgba(201,169,110,0.05);
 }
