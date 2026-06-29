@@ -2,8 +2,8 @@ name: Sync E&V Listings
 
 on:
   schedule:
-    # Daily at 07:00 UTC (09:00 München-Zeit)
-    - cron: '0 7 * * *'
+    # Jeden Dienstag um 11:00 München-Zeit (= 09:00 UTC, Sommerzeit)
+    - cron: '0 9 * * 2'
   workflow_dispatch:
     # Manueller Trigger: Actions → Run workflow
 
