@@ -1449,15 +1449,14 @@ section[id], h2[id] {
   }
 }
 
-/* --- Bewertungs-Funnel (dark panel) --- */
+/* --- Bewertungs-Funnel --- */
 .funnel-progress {
   margin-bottom: var(--space-lg);
 }
 
 .funnel-progress__bar {
   height: 2px;
-  background: rgba(255,255,255,0.1);
-  border-radius: 2px;
+  background: rgba(26,26,26,0.08);
   overflow: hidden;
 }
 
@@ -1473,7 +1472,7 @@ section[id], h2[id] {
   font-size: 0.7rem;
   letter-spacing: var(--tracking-brand);
   text-transform: uppercase;
-  color: rgba(240,237,232,0.4);
+  color: var(--text-muted);
   margin-top: var(--space-xs);
 }
 
@@ -1484,22 +1483,22 @@ section[id], h2[id] {
 }
 
 .funnel-type-card {
-  border: 1px solid rgba(201,169,110,0.22);
-  background: rgba(255,255,255,0.04);
+  border: 1px solid var(--gold-light);
+  background: transparent;
   padding: var(--space-md) var(--space-sm);
   font-family: var(--font-sans);
   font-weight: 300;
   font-size: var(--text-body);
-  color: var(--cream);
+  color: var(--text-dark);
   cursor: pointer;
-  transition: border-color 0.2s ease, background 0.2s ease, color 0.2s ease;
+  transition: border-color 0.2s ease, background 0.2s ease;
   text-align: center;
   letter-spacing: 0.02em;
 }
 
 .funnel-type-card:hover {
   border-color: var(--gold);
-  background: rgba(201,169,110,0.1);
+  background: rgba(201,169,110,0.07);
 }
 
 .funnel-type-card.is-selected {
@@ -1515,27 +1514,83 @@ section[id], h2[id] {
   gap: var(--space-sm);
 }
 
-#bewertungs-form input,
+/* Premium underline inputs */
+#bewertungs-form input:not([type="checkbox"]),
 #bewertungs-form select {
-  background: rgba(255,255,255,0.06);
-  color: var(--cream);
-  border-color: rgba(255,255,255,0.15);
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 1px solid rgba(26,26,26,0.18);
+  background: transparent;
+  padding: 0.9rem 0;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--text-dark);
+  outline: none;
+  transition: border-color 0.25s ease;
+  border-radius: 0;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+#bewertungs-form input:not([type="checkbox"]):focus,
+#bewertungs-form select:focus {
+  border-bottom-color: var(--gold);
 }
 
 #bewertungs-form input::placeholder {
-  color: rgba(240,237,232,0.32);
+  color: rgba(26,26,26,0.28);
+  font-weight: 200;
 }
 
-#bewertungs-form input:focus,
-#bewertungs-form select:focus {
-  border-color: var(--gold);
-  outline-color: var(--gold);
-  background: rgba(255,255,255,0.09);
+#bewertungs-form input[type="checkbox"] {
+  accent-color: var(--gold);
 }
 
 #bewertungs-form select {
-  color-scheme: dark;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='7' viewBox='0 0 12 7'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23A8843E' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 2px center;
+  padding-right: 1.5rem;
 }
+
+/* Adresse-Autocomplete */
+.autocomplete-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: var(--white);
+  border: 1px solid var(--gold-light);
+  border-top: none;
+  z-index: 200;
+  max-height: 210px;
+  overflow-y: auto;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+.autocomplete-item {
+  padding: 0.7rem 0;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 300;
+  color: var(--text-dark);
+  cursor: pointer;
+  border-bottom: 1px solid rgba(26,26,26,0.05);
+  transition: color 0.15s ease;
+  line-height: 1.4;
+}
+
+.autocomplete-item:hover,
+.autocomplete-item[aria-selected="true"] {
+  color: var(--noir);
+  font-weight: 400;
+}
+
+.autocomplete-item:last-child { border-bottom: none; }
 
 @media (max-width: 480px) {
   .funnel-type-grid { grid-template-columns: 1fr; }

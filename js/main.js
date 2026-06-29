@@ -343,3 +343,100 @@
     }
   });
 })();
+
+/* Adresse-Autocomplete im Bewertungs-Funnel (Photon / OpenStreetMap, kein API-Key) */
+(function () {
+  var straßeInput = document.getElementById('fn-strasse');
+  var plzInput = document.getElementById('fn-plz');
+  if (!straßeInput) return;
+
+  var wrapper = straßeInput.parentNode;
+  var dropdown = document.createElement('div');
+  dropdown.className = 'autocomplete-dropdown';
+  dropdown.setAttribute('role', 'listbox');
+  dropdown.hidden = true;
+  wrapper.appendChild(dropdown);
+
+  var debounce;
+  var activeIndex = -1;
+
+  function getItems() { return dropdown.querySelectorAll('.autocomplete-item'); }
+
+  function setActive(items, idx) {
+    items.forEach(function (el, i) {
+      el.setAttribute('aria-selected', i === idx ? 'true' : 'false');
+    });
+    activeIndex = idx;
+  }
+
+  function selectItem(item) {
+    straßeInput.value = item.dataset.street || '';
+    if (item.dataset.plz) plzInput.value = item.dataset.plz;
+    dropdown.hidden = true;
+    activeIndex = -1;
+  }
+
+  straßeInput.addEventListener('input', function () {
+    clearTimeout(debounce);
+    var q = straßeInput.value.trim();
+    if (q.length < 3) { dropdown.hidden = true; return; }
+
+    debounce = setTimeout(function () {
+      fetch('https://photon.komoot.io/api/?q=' + encodeURIComponent(q) + '&lang=de&limit=8&layer=street&layer=house')
+        .then(function (r) { return r.json(); })
+        .then(function (data) {
+          var features = (data.features || []).filter(function (f) {
+            return f.properties.street || f.properties.name;
+          });
+          if (!features.length) { dropdown.hidden = true; return; }
+
+          dropdown.innerHTML = '';
+          features.slice(0, 5).forEach(function (f) {
+            var p = f.properties;
+            var street = [p.street || p.name, p.housenumber].filter(Boolean).join(' ');
+            var city = [p.postcode, p.city || p.town || p.village || p.county].filter(Boolean).join(' ');
+            var extra = p.country && p.country !== 'Deutschland' ? p.country : '';
+            var label = [street, city, extra].filter(Boolean).join(', ');
+
+            var item = document.createElement('div');
+            item.className = 'autocomplete-item';
+            item.setAttribute('role', 'option');
+            item.setAttribute('aria-selected', 'false');
+            item.dataset.street = street;
+            item.dataset.plz = p.postcode || '';
+            item.textContent = label;
+            item.addEventListener('mousedown', function (e) {
+              e.preventDefault();
+              selectItem(item);
+            });
+            dropdown.appendChild(item);
+          });
+
+          dropdown.hidden = false;
+          activeIndex = -1;
+        })
+        .catch(function () { dropdown.hidden = true; });
+    }, 350);
+  });
+
+  straßeInput.addEventListener('keydown', function (e) {
+    if (dropdown.hidden) return;
+    var items = getItems();
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      setActive(items, Math.min(activeIndex + 1, items.length - 1));
+    } else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      setActive(items, Math.max(activeIndex - 1, 0));
+    } else if ((e.key === 'Enter' || e.key === 'Tab') && activeIndex >= 0) {
+      e.preventDefault();
+      selectItem(items[activeIndex]);
+    } else if (e.key === 'Escape') {
+      dropdown.hidden = true;
+    }
+  });
+
+  straßeInput.addEventListener('blur', function () {
+    setTimeout(function () { dropdown.hidden = true; }, 180);
+  });
+})();
