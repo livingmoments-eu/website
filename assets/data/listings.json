@@ -1,0 +1,78 @@
+{
+  "lastUpdated": "2026-06-29",
+  "source": "https://www.engelvoelkers.com/de/de/advisors/julia-gehring",
+  "listings": [
+    {
+      "id": "638d1d6c-ef7c-55b5-b37a-c51f74e07f32",
+      "title": "Nymphenburg, wo der Schlosspark endet - beginnt Ihr 400 m² Traumgarten",
+      "location": "Neuhausen-Nymphenburg, München",
+      "price": "1.745.000 €",
+      "rooms": "2 Zimmer",
+      "bathrooms": "2 Badezimmer",
+      "sqm": "~125 m² Wohnfläche",
+      "isNew": true,
+      "url": "https://www.engelvoelkers.com/de/de/exposes/638d1d6c-ef7c-55b5-b37a-c51f74e07f32",
+      "firstSeen": "2026-06-29"
+    },
+    {
+      "id": "e7582803-8847-5dd8-9d23-356bd5b2bd46",
+      "title": "Penthouse Ensemble auf einer Ebene 124 m² Dachterrasse | 4 Tiefgaragenplätze",
+      "location": "Milbertshofen-Am Hart, München",
+      "price": "3.978.000 €",
+      "rooms": "6 Zimmer",
+      "bathrooms": "4 Badezimmer",
+      "sqm": "~436 m² Wohnfläche",
+      "isNew": true,
+      "url": "https://www.engelvoelkers.com/de/de/exposes/e7582803-8847-5dd8-9d23-356bd5b2bd46",
+      "firstSeen": "2026-06-29"
+    },
+    {
+      "id": "50766f7b-2cda-5818-8b60-f9df41845c4c",
+      "title": "Gestaltungspotenzial in München-Moosach: Balkon, Tiefgarage und eine Raumhöhe, die begeistert",
+      "location": "Moosach, München",
+      "price": "449.000 €",
+      "rooms": "3 Zimmer",
+      "bathrooms": "1 Badezimmer",
+      "sqm": "~74 m² Wohnfläche",
+      "isNew": true,
+      "url": "https://www.engelvoelkers.com/de/de/exposes/50766f7b-2cda-5818-8b60-f9df41845c4c",
+      "firstSeen": "2026-06-29"
+    },
+    {
+      "id": "3e9cc251-6e97-568a-9a66-446c35f0b21c",
+      "title": "2-Zimmer-Wohnung in Schwabing - mittendrin, bestens angebunden & mit Tiefgarage",
+      "location": "Schwabing-Freimann, München",
+      "price": "510.000 €",
+      "rooms": "2 Zimmer",
+      "bathrooms": "1 Badezimmer",
+      "sqm": "~50 m² Wohnfläche",
+      "isNew": true,
+      "url": "https://www.engelvoelkers.com/de/de/exposes/3e9cc251-6e97-568a-9a66-446c35f0b21c",
+      "firstSeen": "2026-06-29"
+    },
+    {
+      "id": "2b85a950-2f2b-5722-bb0a-db42e2358faa",
+      "title": "Moderne 3-Zimmer-Wohnung mit Terrasse und unverbaubarem Blick ins Grüne",
+      "location": "Feldmoching-Hasenbergl, München",
+      "price": "549.000 €",
+      "rooms": "3 Zimmer",
+      "bathrooms": "2 Badezimmer",
+      "sqm": "~77 m² Wohnfläche",
+      "isNew": false,
+      "url": "https://www.engelvoelkers.com/de/de/exposes/2b85a950-2f2b-5722-bb0a-db42e2358faa",
+      "firstSeen": "2026-06-15"
+    },
+    {
+      "id": "707ed2fb-a049-5d61-b456-4fd330ad4285",
+      "title": "Modernes Einfamilienhaus gesucht? Einziehen und wohlfühlen.",
+      "location": "Pliening, Bayern",
+      "price": "1.340.000 €",
+      "rooms": "5 Zimmer",
+      "bathrooms": "2 Badezimmer",
+      "sqm": "~212 m² Wohnfläche",
+      "isNew": true,
+      "url": "https://www.engelvoelkers.com/de/de/exposes/707ed2fb-a049-5d61-b456-4fd330ad4285",
+      "firstSeen": "2026-06-29"
+    }
+  ]
+}
