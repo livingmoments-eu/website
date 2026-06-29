@@ -1248,7 +1248,97 @@ a.contact-row:hover .contact-row__arrow {
   text-align: center;
 }
 
-.page-header--immo { background: var(--cream); }
+.page-header--immo {
+  background: var(--cream);
+  padding-bottom: var(--space-md);
+}
+
+/* --- Immobilien Photo Gallery --- */
+.immo-gallery {
+  display: grid;
+  grid-template-columns: 55fr 45fr;
+  grid-template-rows: 350px 290px;
+  gap: 3px;
+  line-height: 0;
+  background: var(--noir);
+}
+
+.immo-gallery__item {
+  overflow: hidden;
+  position: relative;
+}
+
+.immo-gallery__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.75s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+
+.immo-gallery__item:hover img {
+  transform: scale(1.05);
+}
+
+.immo-gallery__item--main {
+  grid-row: 1 / 3;
+}
+
+.immo-gallery__accent {
+  overflow: hidden;
+  line-height: 0;
+}
+
+.immo-gallery__accent img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.75s cubic-bezier(0.25,0.46,0.45,0.94);
+}
+
+.immo-gallery__accent:hover img {
+  transform: scale(1.05);
+}
+
+/* --- Immobilien Stats Strip --- */
+.immo-stats {
+  display: flex;
+  justify-content: center;
+  background: var(--noir);
+  border-top: 1px solid rgba(201,169,110,0.2);
+  flex-wrap: wrap;
+}
+
+.immo-stats__item {
+  flex: 1;
+  min-width: 140px;
+  padding: var(--space-lg) var(--space-md);
+  text-align: center;
+  border-right: 1px solid rgba(255,255,255,0.07);
+}
+
+.immo-stats__item:last-child { border-right: none; }
+
+.immo-stats__number {
+  font-family: var(--font-serif);
+  font-weight: 300;
+  font-size: 2.2rem;
+  color: var(--gold);
+  line-height: 1;
+  display: block;
+  margin-bottom: 0.35rem;
+}
+
+.immo-stats__label {
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  display: block;
+}
 .page-header--events { background: var(--noir); color: var(--white); }
 .page-header--about {
   background: var(--gold);
@@ -1608,6 +1698,14 @@ section[id], h2[id] {
   .verkauft-grid {
     grid-template-columns: 1fr;
   }
+
+  /* Immobilien Gallery */
+  .immo-gallery {
+    grid-template-columns: 1fr;
+    grid-template-rows: 260px 220px 220px;
+  }
+  .immo-gallery__item--main { grid-row: auto; }
+  .immo-stats__item { min-width: 120px; }
 }
 
 /* --- Bewertungs-Funnel --- */
