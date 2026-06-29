@@ -259,6 +259,31 @@
       <div class="listings-loading">Angebote werden geladen...</div>
     </div>
 
+    <!-- Erfolgreich vermittelt -->
+    <div class="fade-in" style="margin-top:var(--space-xl); margin-bottom:var(--space-lg);">
+      <span class="section-label" style="display:block; margin-bottom:var(--space-md);">Erfolgreich vermittelt</span>
+      <div class="listings-grid">
+        <div class="listing-card listing-card--sold">
+          <span class="listing-card__badge listing-card__badge--sold">Vermietet</span>
+          <div class="listing-card__location">München · Baumkirchen Mitte</div>
+          <div class="listing-card__title">Dachgartenwohnung mit Alpenblick</div>
+          <div class="listing-card__meta">Exklusive Penthouse-Wohnung mit privatem Dachgarten und unverbaubarem Panoramablick auf die Alpen</div>
+        </div>
+        <div class="listing-card listing-card--sold">
+          <span class="listing-card__badge listing-card__badge--sold">Vermietet</span>
+          <div class="listing-card__location">Graz</div>
+          <div class="listing-card__title">2-Zimmer-Wohnung nahe Universität</div>
+          <div class="listing-card__meta">Helle, gut geschnittene Wohnung in zentraler Lage mit sehr guter Verkehrsanbindung</div>
+        </div>
+        <div class="listing-card listing-card--sold">
+          <span class="listing-card__badge listing-card__badge--sold">Verkauft</span>
+          <div class="listing-card__location">München · Karlsfeld</div>
+          <div class="listing-card__title">Familiengerechte Wohnung mit großzügigem Grundriss</div>
+          <div class="listing-card__meta">Geräumige Familienwohnung mit optimaler Raumaufteilung in bester Infrastrukturlage</div>
+        </div>
+      </div>
+    </div>
+
     <!-- In Vorbereitung -->
     <div class="fade-in" style="margin-bottom:var(--space-lg);">
       <span class="section-label" style="margin-bottom:var(--space-sm);">In Vorbereitung</span>
@@ -353,8 +378,8 @@
 
 <!-- Bewertungs-Funnel Modal -->
 <div id="bewertungs-funnel" style="display:none; position:fixed; inset:0; background:rgba(26,26,26,0.7); z-index:1000; align-items:center; justify-content:center; padding:var(--space-md);" onclick="if(event.target===this)this.style.display='none'">
-  <div style="background:var(--cream); max-width:560px; width:100%; max-height:90vh; overflow-y:auto; padding:var(--space-xl); position:relative;">
-    <button onclick="document.getElementById('bewertungs-funnel').style.display='none'" style="position:absolute; top:var(--space-sm); right:var(--space-sm); background:none; border:none; cursor:pointer; font-family:var(--font-sans); font-weight:200; font-size:1.2rem; color:var(--text-muted); line-height:1;" aria-label="Schließen">✕</button>
+  <div style="background:var(--noir); color:var(--cream); max-width:560px; width:100%; max-height:90vh; overflow-y:auto; padding:var(--space-xl); position:relative;">
+    <button onclick="document.getElementById('bewertungs-funnel').style.display='none'" style="position:absolute; top:var(--space-sm); right:var(--space-sm); background:none; border:none; cursor:pointer; font-family:var(--font-sans); font-weight:200; font-size:1.2rem; color:rgba(240,237,232,0.4); line-height:1;" aria-label="Schließen">✕</button>
 
     <!-- Fortschrittsbalken -->
     <div class="funnel-progress">
@@ -433,8 +458,8 @@
             <label for="fn-telefon" class="visually-hidden">Telefon oder WhatsApp</label>
             <input type="tel" id="fn-telefon" name="telefon" placeholder="Telefon oder WhatsApp (optional)" autocomplete="tel">
           </div>
-          <label style="display:flex; gap:0.5rem; align-items:flex-start; font-size:var(--text-small); color:var(--text-muted); font-weight:300; cursor:pointer; margin-top:var(--space-xs);">
-            <input type="checkbox" id="fn-consent" name="consent" required style="width:auto; margin-top:0.2rem;">
+          <label style="display:flex; gap:0.5rem; align-items:flex-start; font-size:var(--text-small); color:rgba(240,237,232,0.55); font-weight:300; cursor:pointer; margin-top:var(--space-xs);">
+            <input type="checkbox" id="fn-consent" name="consent" required style="width:auto; margin-top:0.2rem; accent-color:var(--gold);">
             <span>Ich bin einverstanden, dass meine Angaben zur Bearbeitung dieser Anfrage gespeichert und verwendet werden. *</span>
           </label>
         </div>
@@ -444,7 +469,7 @@
       <div class="funnel-step" data-step="success" hidden style="text-align:center;">
         <span class="section-label">Vielen Dank</span>
         <h3 style="font-family:var(--font-serif); font-weight:300; font-size:1.5rem; margin:0.4rem 0 var(--space-sm);">Ihre Anfrage ist bei mir.</h3>
-        <p style="color:var(--text-muted); font-weight:300;">Ich melde mich innerhalb von 24 Stunden persönlich mit einer ersten Einschätzung bei Ihnen.</p>
+        <p style="color:rgba(240,237,232,0.65); font-weight:300;">Ich melde mich innerhalb von 24 Stunden persönlich mit einer ersten Einschätzung bei Ihnen.</p>
       </div>
 
       <div class="funnel-nav">
