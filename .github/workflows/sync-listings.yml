@@ -23,7 +23,7 @@ jobs:
           python-version: '3.11'
 
       - name: Install dependencies
-        run: pip install firecrawl-py
+        run: pip install "firecrawl-py>=1.0,<5"
 
       - name: Scrape listings
         env:
