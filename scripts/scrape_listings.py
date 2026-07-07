@@ -81,9 +81,9 @@ def scrape():
 
     result = app.scrape_url(
         ADVISOR_URL,
-        formats=["json"],
+        formats=["extract"],
         wait_for=8000,
-        json_options={
+        extract={
             "prompt": (
                 "Extract all property listings on this real estate advisor page. "
                 "For each listing: title (full headline text), location (full location string), "
@@ -96,7 +96,7 @@ def scrape():
         },
     )
 
-    return result.get("json", {}).get("listings", [])
+    return result.get("extract", {}).get("listings", [])
 
 
 def merge(scraped, existing):
