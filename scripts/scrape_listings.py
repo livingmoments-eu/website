@@ -115,7 +115,7 @@ def merge(scraped, existing):
         is_new_by_age = days_since(first_seen) <= NEW_THRESHOLD_DAYS
         is_new = s.get("isNew", False) or is_new_by_age
 
-        result.append({
+        entry = {
             "id":        expose_id,
             "title":     s.get("title", "").strip(),
             "location":  clean_location(s.get("location", "")),
@@ -126,7 +126,10 @@ def merge(scraped, existing):
             "isNew":     is_new,
             "url":       url,
             "firstSeen": first_seen,
-        })
+        }
+        if old.get("reserved"):
+            entry["reserved"] = True
+        result.append(entry)
 
     result.sort(key=lambda x: (not x["isNew"], x.get("firstSeen", "")))
     return result
