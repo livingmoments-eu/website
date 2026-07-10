@@ -1,7 +1,19 @@
 {
-  "lastUpdated": "2026-06-29",
+  "lastUpdated": "2026-07-10",
   "source": "https://www.engelvoelkers.com/de/de/advisors/julia-gehring",
   "listings": [
+    {
+      "id": "ca7a6944-25ba-5006-9551-ad5f42c3ed9c",
+      "title": "Zwei Häuser, ein Anwesen - viel Platz für Familie, Hobby und Arbeiten",
+      "location": "Wolfratshausen",
+      "price": "4.200.000 €",
+      "rooms": "8 Zimmer",
+      "bathrooms": "4 Badezimmer",
+      "sqm": "~642 m² Wohnfläche",
+      "isNew": true,
+      "url": "https://www.engelvoelkers.com/de/de/exposes/ca7a6944-25ba-5006-9551-ad5f42c3ed9c",
+      "firstSeen": "2026-07-10"
+    },
     {
       "id": "638d1d6c-ef7c-55b5-b37a-c51f74e07f32",
       "title": "Nymphenburg, wo der Schlosspark endet - beginnt Ihr 400 m² Traumgarten",
