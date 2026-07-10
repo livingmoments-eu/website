@@ -266,10 +266,14 @@
       }
 
       container.innerHTML = listings.map(function (l) {
-        var badge = l.isNew ? '<span class="listing-card__badge">NEU</span>' : '';
+        var reserved = !!l.reserved;
+        var badge = reserved
+          ? '<span class="listing-card__badge listing-card__badge--reserved">Reserviert</span>'
+          : (l.isNew ? '<span class="listing-card__badge">NEU</span>' : '');
+        var cardClass = 'listing-card fade-in' + (reserved ? ' listing-card--reserved' : '');
         var metaStr = [l.rooms, l.bathrooms, l.sqm].filter(Boolean).join(' · ');
         return (
-          '<a href="' + l.url + '" target="_blank" rel="noopener" class="listing-card fade-in">' +
+          '<a href="' + l.url + '" target="_blank" rel="noopener" class="' + cardClass + '">' +
             badge +
             '<div class="listing-card__location">' + (l.location || '') + '</div>' +
             '<div class="listing-card__title">' + (l.title || '') + '</div>' +

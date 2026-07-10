@@ -1548,6 +1548,32 @@ section[id], h2[id] {
   border-color: var(--gold-light);
 }
 
+.listing-card--reserved {
+  padding-top: 3rem;
+  background: var(--cream-dark);
+  opacity: 0.82;
+}
+
+.listing-card--reserved:hover {
+  opacity: 1;
+}
+
+.listing-card__badge--reserved {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: var(--noir);
+  color: var(--gold);
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 0.55rem var(--space-md);
+}
+
 /* ============================================================
    Responsive Grid-Helfer (ersetzt Inline-Styles)
    ============================================================ */
