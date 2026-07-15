@@ -854,6 +854,102 @@ h1, h2, h3 { text-wrap: balance; }
   color: var(--gold-light);
 }
 
+/* --- Testimonials Carousel --- */
+.testimonials-carousel {
+  margin-top: var(--space-xl);
+}
+
+.testimonials-carousel__track {
+  display: flex;
+  gap: var(--space-lg);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.testimonials-carousel__track::-webkit-scrollbar {
+  display: none;
+}
+
+.testimonials-carousel__track .testimonial-card {
+  flex: 0 0 calc(33.333% - var(--space-lg) * 2 / 3);
+  scroll-snap-align: start;
+  min-width: 260px;
+}
+
+@media (max-width: 900px) {
+  .testimonials-carousel__track .testimonial-card {
+    flex: 0 0 calc(50% - var(--space-lg) / 2);
+  }
+}
+
+@media (max-width: 560px) {
+  .testimonials-carousel__track .testimonial-card {
+    flex: 0 0 min(360px, calc(100% - 1rem));
+  }
+}
+
+.testimonials-carousel__nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-lg);
+  margin-top: var(--space-lg);
+}
+
+.testimonials-carousel__btn {
+  background: none;
+  border: 1px solid rgba(201,169,110,0.3);
+  color: var(--gold);
+  font-size: 1.4rem;
+  line-height: 1;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 1px;
+  transition: background 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+  flex-shrink: 0;
+}
+
+.testimonials-carousel__btn:hover:not(:disabled) {
+  background: rgba(201,169,110,0.1);
+  border-color: rgba(201,169,110,0.6);
+}
+
+.testimonials-carousel__btn:disabled {
+  opacity: 0.25;
+  cursor: default;
+}
+
+.testimonials-carousel__dots {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.testimonials-carousel__dot {
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: rgba(201,169,110,0.25);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.testimonials-carousel__dot--active,
+.testimonials-carousel__dot:hover {
+  background: var(--gold);
+  transform: scale(1.4);
+}
+
 /* Testimonial Modal */
 .testimonial-modal {
   position: fixed;

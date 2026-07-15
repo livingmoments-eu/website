@@ -382,6 +382,61 @@
   });
 })();
 
+/* Testimonials Carousel */
+(function () {
+  var carousel = document.querySelector('.testimonials-carousel');
+  if (!carousel) return;
+
+  var track = carousel.querySelector('.testimonials-carousel__track');
+  var cards = Array.from(track.querySelectorAll('.testimonial-card'));
+  var prevBtn = carousel.querySelector('.testimonials-carousel__btn--prev');
+  var nextBtn = carousel.querySelector('.testimonials-carousel__btn--next');
+  var dots = Array.from(carousel.querySelectorAll('.testimonials-carousel__dot'));
+
+  if (!track || cards.length < 2) return;
+
+  function getActiveIndex() {
+    var scrollLeft = track.scrollLeft;
+    var closest = 0;
+    var minDist = Infinity;
+    cards.forEach(function (card, i) {
+      var dist = Math.abs(card.offsetLeft - scrollLeft);
+      if (dist < minDist) { minDist = dist; closest = i; }
+    });
+    return closest;
+  }
+
+  function updateState() {
+    var maxScroll = track.scrollWidth - track.clientWidth;
+    if (prevBtn) prevBtn.disabled = track.scrollLeft <= 2;
+    if (nextBtn) nextBtn.disabled = track.scrollLeft >= maxScroll - 2;
+    var idx = getActiveIndex();
+    dots.forEach(function (dot, i) {
+      dot.classList.toggle('testimonials-carousel__dot--active', i === idx);
+    });
+  }
+
+  function scrollToCard(index) {
+    var card = cards[Math.max(0, Math.min(index, cards.length - 1))];
+    if (card) track.scrollTo({ left: card.offsetLeft, behavior: 'smooth' });
+  }
+
+  if (prevBtn) prevBtn.addEventListener('click', function () { scrollToCard(getActiveIndex() - 1); });
+  if (nextBtn) nextBtn.addEventListener('click', function () { scrollToCard(getActiveIndex() + 1); });
+
+  dots.forEach(function (dot, i) {
+    dot.addEventListener('click', function () { scrollToCard(i); });
+  });
+
+  var scrollTimeout;
+  track.addEventListener('scroll', function () {
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(updateState, 80);
+  }, { passive: true });
+
+  updateState();
+})();
+
 /* Adresse-Autocomplete im Bewertungs-Funnel (Photon / OpenStreetMap, kein API-Key) */
 (function () {
   var straßeInput = document.getElementById('fn-strasse');
