@@ -37,31 +37,6 @@
       "isNew": true,
       "url": "https://www.engelvoelkers.com/de/de/exposes/e7582803-8847-5dd8-9d23-356bd5b2bd46",
       "firstSeen": "2026-06-29"
-    },
-    {
-      "id": "3e9cc251-6e97-568a-9a66-446c35f0b21c",
-      "title": "2-Zimmer-Wohnung in Schwabing - mittendrin, bestens angebunden & mit Tiefgarage",
-      "location": "Schwabing-Freimann, München",
-      "price": "510.000 €",
-      "rooms": "2 Zimmer",
-      "bathrooms": "1 Badezimmer",
-      "sqm": "~50 m² Wohnfläche",
-      "isNew": true,
-      "url": "https://www.engelvoelkers.com/de/de/exposes/3e9cc251-6e97-568a-9a66-446c35f0b21c",
-      "firstSeen": "2026-06-29"
-    },
-    {
-      "id": "50766f7b-2cda-5818-8b60-f9df41845c4c",
-      "title": "Gestaltungspotenzial in München-Moosach: Balkon, Tiefgarage und eine Raumhöhe, die begeistert",
-      "location": "Moosach, München",
-      "price": "449.000 €",
-      "rooms": "3 Zimmer",
-      "bathrooms": "1 Badezimmer",
-      "sqm": "~74 m² Wohnfläche",
-      "isNew": true,
-      "reserved": true,
-      "url": "https://www.engelvoelkers.com/de/de/exposes/50766f7b-2cda-5818-8b60-f9df41845c4c",
-      "firstSeen": "2026-06-29"
     }
   ]
 }
