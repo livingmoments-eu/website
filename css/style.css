@@ -386,13 +386,13 @@ h1, h2, h3 { text-wrap: balance; }
 }
 
 .about-split__half--immo {
-  background: var(--noir);
-  color: var(--white);
+  background: var(--cream);
+  color: var(--text-dark);
 }
 
 .about-split__half--events {
-  background: var(--cream);
-  color: var(--text-dark);
+  background: var(--noir);
+  color: var(--white);
 }
 
 @media (max-width: 900px) {
@@ -416,13 +416,13 @@ h1, h2, h3 { text-wrap: balance; }
 }
 
 .hero__half--immo {
-  background: var(--noir);
-  color: var(--white);
+  background: var(--cream);
+  color: var(--text-dark);
 }
 
 .hero__half--events {
-  background: var(--cream);
-  color: var(--text-dark);
+  background: var(--noir);
+  color: var(--white);
 }
 
 /* Goldene Trennlinie */
@@ -485,7 +485,7 @@ h1, h2, h3 { text-wrap: balance; }
   margin-right: auto;
 }
 
-.hero__half--events .hero__subline { color: var(--text-muted); }
+.hero__half--events .hero__subline { color: rgba(255,255,255,0.75); }
 
 @media (max-width: 767px) {
   .hero {
@@ -510,7 +510,6 @@ h1, h2, h3 { text-wrap: balance; }
 
 .section--dark {
   background: var(--noir);
-  color: var(--white);
   color: var(--white);
 }
 
@@ -543,8 +542,6 @@ h1, h2, h3 { text-wrap: balance; }
   color: var(--text-muted);
 }
 
-.section--dark .section__title { color: var(--white); }
-.section--dark h3 { color: var(--white); }
 .section--dark .section__lead { color: rgba(255,255,255,0.65); }
 .section--dark .section-label,
 [style*="background: var(--noir"] .section-label,
@@ -561,8 +558,8 @@ h1, h2, h3 { text-wrap: balance; }
   padding: var(--space-xl) var(--gutter);
 }
 
-.services-col--immo { background: var(--noir); color: var(--white); }
-.services-col--events { background: var(--cream); color: var(--text-dark); }
+.services-col--immo { background: var(--cream); }
+.services-col--events { background: var(--noir); color: var(--white); }
 
 .services-col__title {
   font-family: var(--font-serif);
@@ -1348,8 +1345,7 @@ a.contact-row:hover .contact-row__arrow {
 }
 
 .page-header--immo {
-  background: var(--noir);
-  color: var(--white);
+  background: var(--cream);
   padding-bottom: var(--space-md);
 }
 
@@ -1418,7 +1414,7 @@ a.contact-row:hover .contact-row__arrow {
   color: rgba(255,255,255,0.45);
   display: block;
 }
-.page-header--events { background: var(--cream); color: var(--noir); }
+.page-header--events { background: var(--noir); color: var(--white); }
 .page-header--about {
   background: var(--gold);
   color: var(--noir);
@@ -1497,7 +1493,7 @@ section[id], h2[id] {
   color: var(--text-muted);
 }
 
-.page-header--events .page-header__lead { color: var(--text-muted); }
+.page-header--events .page-header__lead { color: rgba(255,255,255,0.65); }
 
 /* --- Smooth Transitions --- */
 .fade-in {
