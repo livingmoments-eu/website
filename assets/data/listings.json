@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2026-07-10",
+  "lastUpdated": "2026-08-30",
   "source": "https://www.engelvoelkers.com/de/de/advisors/julia-gehring",
   "listings": [
     {
@@ -10,7 +10,7 @@
       "rooms": "8 Zimmer",
       "bathrooms": "4 Badezimmer",
       "sqm": "~642 m² Wohnfläche",
-      "isNew": true,
+      "isNew": false,
       "url": "https://www.engelvoelkers.com/de/de/exposes/ca7a6944-25ba-5006-9551-ad5f42c3ed9c",
       "firstSeen": "2026-07-10"
     },
@@ -22,7 +22,7 @@
       "rooms": "2 Zimmer",
       "bathrooms": "2 Badezimmer",
       "sqm": "~125 m² Wohnfläche",
-      "isNew": true,
+      "isNew": false,
       "url": "https://www.engelvoelkers.com/de/de/exposes/638d1d6c-ef7c-55b5-b37a-c51f74e07f32",
       "firstSeen": "2026-06-29"
     },
@@ -34,7 +34,7 @@
       "rooms": "6 Zimmer",
       "bathrooms": "4 Badezimmer",
       "sqm": "~436 m² Wohnfläche",
-      "isNew": true,
+      "isNew": false,
       "url": "https://www.engelvoelkers.com/de/de/exposes/e7582803-8847-5dd8-9d23-356bd5b2bd46",
       "firstSeen": "2026-06-29"
     }
