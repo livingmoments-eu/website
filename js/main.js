@@ -371,7 +371,7 @@
     document.body.style.overflow = '';
   }
 
-  document.querySelectorAll('.testimonial-card').forEach(function (card) {
+  document.querySelectorAll('[data-testimonial]').forEach(function (card) {
     card.addEventListener('click', function () { openModal(card.dataset.testimonial); });
   });
 

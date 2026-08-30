@@ -418,14 +418,16 @@
         <p style="font-family:var(--font-sans); font-weight:200; font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); margin-top:var(--space-sm);">Eigentümerin · München-Maxvorstadt</p>
       </article>
 
-      <article class="fade-in" style="border: 1px solid var(--gold-light); padding: var(--space-md); background:var(--cream);">
+      <button class="fade-in" type="button" data-testimonial="myriam" aria-label="Vollständige Bewertung von Myriam Imran lesen"
+        style="background:var(--cream); border:1px solid var(--gold-light); padding:var(--space-md); display:flex; flex-direction:column; text-align:left; cursor:pointer; transition:border-color 0.2s ease;">
         <span class="section-label">Immobilien · Verkauf</span>
-        <blockquote style="font-family:var(--font-serif); font-style:italic; font-size:1.05rem; font-weight:300; color:var(--text-dark); line-height:1.7; margin-bottom:var(--space-sm);">
-          „Bis zur letzten Minute einfühlsam und professionell begleitet. Wir haben unsere Wohnung in kürzester Zeit zum gewünschten Preis verkauft – und würden uns jederzeit wieder an sie wenden."
-        </blockquote>
+        <p style="font-family:var(--font-serif); font-style:italic; font-size:1.05rem; font-weight:300; color:var(--text-dark); line-height:1.7; margin-bottom:var(--space-sm);">„Bis zur letzten Minute und auch noch darüber hinaus einfühlsam und professionell beraten und begleitet beim Verkauf unserer Wohnung."</p>
         <div class="divider"></div>
-        <p style="font-family:var(--font-sans); font-weight:200; font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted); margin-top:var(--space-sm);">Myriam Imran · München-Moosach</p>
-      </article>
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-top:var(--space-sm);">
+          <p style="font-family:var(--font-sans); font-weight:200; font-size:0.7rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--text-muted);">Myriam Imran · München-Moosach</p>
+          <span style="font-family:var(--font-sans); font-weight:200; font-size:var(--text-label); letter-spacing:var(--tracking-nav); text-transform:uppercase; color:var(--gold); flex-shrink:0; margin-left:var(--space-sm);">Lesen&nbsp;→</span>
+        </div>
+      </button>
 
     </div>
   </div>
@@ -608,6 +610,27 @@
     </div>
   </div>
 </footer>
+
+<!-- Testimonial Template: Myriam Imran -->
+<div id="testimonial-myriam" hidden>
+  <p class="testimonial-modal__pull">Bis zur letzten Minute und auch noch darüber hinaus einfühlsam und professionell beraten und begleitet.</p>
+  <div class="testimonial-modal__body">
+    <p>bis zur letzten Minute und auch noch darüber hinaus einfühlsam und professionell beraten und begleitet beim Verkauf unserer Wohnung. Ihre Einschätzung des Objekts, die Erstellung des Exposés, ihre Präsenz und ihr Engagement haben dazu geführt, dass wir unsere Wohnung in kürzester Zeit zum gewünschten Preis verkauft haben. Jederzeit würden wir uns wieder an sie wenden. Konzept und Durchführung von E&V haben uns absolut überzeugt und mit Frau Gehring, die jederzeit erreichbar war, haben wir uns bestens vertreten gefühlt.</p>
+  </div>
+  <div class="testimonial-modal__author">
+    Myriam Imran
+    <span>München-Moosach · Verkauf</span>
+  </div>
+</div>
+
+<!-- Testimonial Modal -->
+<div id="testimonial-modal" class="testimonial-modal" role="dialog" aria-modal="true" hidden>
+  <div class="testimonial-modal__backdrop"></div>
+  <div class="testimonial-modal__panel">
+    <button class="testimonial-modal__close" type="button" aria-label="Schließen">&times;</button>
+    <div id="testimonial-modal-content"></div>
+  </div>
+</div>
 
 <script src="js/main.js"></script>
   <!-- Vercel Analytics & Speed Insights -->
