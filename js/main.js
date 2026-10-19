@@ -262,7 +262,8 @@
       var meta = document.getElementById('listings-meta');
       if (meta && updated) {
         var d = new Date(updated + 'T00:00:00');
-        meta.textContent = 'Zuletzt aktualisiert: ' + d.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' });
+        var dateStr = isNaN(d.getTime()) ? updated : d.toLocaleDateString('de-DE', { day: '2-digit', month: '2-digit', year: 'numeric' });
+        meta.textContent = 'Zuletzt aktualisiert: ' + dateStr;
       }
 
       container.innerHTML = listings.map(function (l) {
