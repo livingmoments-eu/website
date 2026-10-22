@@ -3,6 +3,18 @@
   "source": "https://www.engelvoelkers.com/de/de/advisors/julia-gehring",
   "listings": [
     {
+      "id": "ca7a6944-25ba-5006-9551-ad5f42c3ed9c",
+      "title": "Zwei Häuser, ein Anwesen - viel Platz für Familie, Hobby und Arbeiten",
+      "location": "Wolfratshausen",
+      "price": "4.200.000 €",
+      "rooms": "8 Zimmer",
+      "bathrooms": "4 Badezimmer",
+      "sqm": "~642 m² Wohnfläche",
+      "isNew": false,
+      "url": "https://www.engelvoelkers.com/de/de/exposes/ca7a6944-25ba-5006-9551-ad5f42c3ed9c",
+      "firstSeen": "2026-07-10"
+    },
+    {
       "id": "3c83a757-7fc0-5d6f-ad5d-96da686b84b4",
       "title": "Für Familien, die viel Platz und flexible Nutzungsmöglichkeiten schätzen",
       "location": "Milbertshofen-Am Hart, München",
@@ -12,18 +24,6 @@
       "sqm": "~256 m² Wohnfläche · 124 m² Dachterrasse",
       "isNew": false,
       "url": "https://www.engelvoelkers.com/de/de/exposes/3c83a757-7fc0-5d6f-ad5d-96da686b84b4",
-      "firstSeen": "2026-10-19"
-    },
-    {
-      "id": "2743c64d-ff2e-5baa-a1b7-3415cf2640d8",
-      "title": "Helle 2-Zimmer-Wohnung im Herzen der Maxvorstadt",
-      "location": "Maxvorstadt, München",
-      "price": "485.000 €",
-      "rooms": "2 Zimmer",
-      "bathrooms": "1 Badezimmer",
-      "sqm": "~49 m² Wohnfläche",
-      "isNew": false,
-      "url": "https://www.engelvoelkers.com/de/de/exposes/2743c64d-ff2e-5baa-a1b7-3415cf2640d8",
       "firstSeen": "2026-10-19"
     },
     {
@@ -39,16 +39,28 @@
       "firstSeen": "2026-10-19"
     },
     {
-      "id": "ca7a6944-25ba-5006-9551-ad5f42c3ed9c",
-      "title": "Zwei Häuser, ein Anwesen - viel Platz für Familie, Hobby und Arbeiten",
-      "location": "Wolfratshausen",
-      "price": "4.200.000 €",
-      "rooms": "8 Zimmer",
-      "bathrooms": "4 Badezimmer",
-      "sqm": "~642 m² Wohnfläche",
+      "id": "c1677dee-3a96-5f56-a0d8-1f1e82b1f4b7",
+      "title": "Biederstein am Englischen Garten – großzügige 4-Zimmer-Wohnung, Wintergarten & 2 TG Stellplätze",
+      "location": "Schwabing-Freimann, München",
+      "price": "980.000 €",
+      "rooms": "4 Zimmer",
+      "bathrooms": "2 Badezimmer",
+      "sqm": "~124 m² Wohnfläche",
       "isNew": false,
-      "url": "https://www.engelvoelkers.com/de/de/exposes/ca7a6944-25ba-5006-9551-ad5f42c3ed9c",
-      "firstSeen": "2026-07-10"
+      "url": "https://www.engelvoelkers.com/de/de/exposes/c1677dee-3a96-5f56-a0d8-1f1e82b1f4b7",
+      "firstSeen": "2026-10-22"
+    },
+    {
+      "id": "2743c64d-ff2e-5baa-a1b7-3415cf2640d8",
+      "title": "Helle 2-Zimmer-Wohnung im Herzen der Maxvorstadt",
+      "location": "Maxvorstadt, München",
+      "price": "485.000 €",
+      "rooms": "2 Zimmer",
+      "bathrooms": "1 Badezimmer",
+      "sqm": "~49 m² Wohnfläche",
+      "isNew": false,
+      "url": "https://www.engelvoelkers.com/de/de/exposes/2743c64d-ff2e-5baa-a1b7-3415cf2640d8",
+      "firstSeen": "2026-10-19"
     }
   ]
 }
